@@ -1,0 +1,20 @@
+﻿@model Category
+ 
+<form method="post" asp-action="DeletePOST">
+    <input asp-for="Id" hidden /> 
+    <div class="border p-3 mt-4">
+        <div class="pb-2">
+            <h2 class="text-primary">Delete Category</h2>
+            <hr/>
+        </div>
+    </div>
+    <h2 class="text-danger">Are you sure you want to delete record</h2>
+    <button class="btn btn-danger" type="submit" style="width: 150px;">Delete</button>
+    <a asp-controller="Category" asp-action="Index" class="btn btn-danger" style="width: 150px">Cancel</a>
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+     }
+}
