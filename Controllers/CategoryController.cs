@@ -1,6 +1,8 @@
 ﻿using Doing_List.Data;
 using Doing_List.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Doing_List.Controllers
 {
@@ -14,17 +16,20 @@ namespace Doing_List.Controllers
             _db = db;
         }
 
+      
+
         public IActionResult Index()
         {
-            IEnumerable<Category> objCategoryList = _db.Categories; 
+            
+            IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
-        //GET
+        //GET list
         public IActionResult Create()
         {        
             return View();
         }
-        //POST
+        //POST list
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
@@ -104,5 +109,7 @@ namespace Doing_List.Controllers
             return RedirectToAction("Index");
             
         }
+        
     }
 }
+

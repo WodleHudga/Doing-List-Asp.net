@@ -11,12 +11,25 @@ namespace Doing_List.Models
 
         [Key]
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [DisplayName("Marks Earned")]
         [Range(1,100, ErrorMessage ="Marks Cannot be More than 100")]
+
         public int DisplayOrder { get; set; }
 
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+
+        internal static object AsNoTracking()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static IQueryable<Category> OrderByDescending(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
